@@ -2,10 +2,10 @@
 
 var Terminal = function () {
 
-    var TERM_SERVICE_UUID = "50270001-df25-45b0-8ad9-b27ceba6622f";
+    var TERM_SERVICE_UUID = "569a1101-b87f-490c-92cb-11ba5ea5167c";
 
-    var WRITE_CHAR_UUID = "50270002-df25-45b0-8ad9-b27ceba6622f";
-    var NOTIFY_CHAR_UUID = "50270003-df25-45b0-8ad9-b27ceba6622f";
+    var WRITE_CHAR_UUID = "569a2000-b87f-490c-92cb-11ba5ea5167c";
+    var NOTIFY_CHAR_UUID = "569a2001-b87f-490c-92cb-11ba5ea5167c";
     var CONFIG_CHAR_UUID = "50270004-df25-45b0-8ad9-b27ceba6622f";
 
     function Terminal(bluetooth) {
