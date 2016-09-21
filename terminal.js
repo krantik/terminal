@@ -31,14 +31,14 @@ var Terminal = function () {
             })
             .then(function (service) {
                 return Promise.all([
-                    service.getCharacteristic(CONFIG_CHAR_UUID)
+                    /*service.getCharacteristic(CONFIG_CHAR_UUID)
                         .then(function (characteristic) {
                             self.configCharacteristic = characteristic;
                             return self.configCharacteristic.readValue()
                                 .then(function (value) {
                                     self.configBuffer = value;
                                 });
-                        }),
+                        }),*/
                     service.getCharacteristic(WRITE_CHAR_UUID)
                         .then(function (characteristic) {
                             self.writeCharacteristic = characteristic;
