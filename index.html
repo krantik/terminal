@@ -49,15 +49,16 @@
     </div>
 
     <div layout="row" layout-align="start start" ng-hide="!terminal.connected">
-        <div layout="column" flex="85" flex-gt-md="90" flex-gt-lg="90" flex-xs="65" flex-sm="80">
-            <div class="terminal-textfield" style="top: 20px;">
-                <input type="text" placeholder="Enter hex data to send" class="terminal-textfield" ng-model="inputData">
-            </div>
+        <div layout="column" flex="15" flex-gt-md="10" flex-gt-lg="10" flex-xs="35" flex-sm="20">
+            <md-button class="md-raised send-btn"
+                       ng-click="onAG()"
+                       style="top: 20px;">AG
+            </md-button>
         </div>
         <div layout="column" flex="15" flex-gt-md="10" flex-gt-lg="10" flex-xs="35" flex-sm="20">
             <md-button class="md-raised send-btn"
-                       ng-click="onSend()"
-                       style="top: 20px;">Send
+                       ng-click="onAN()"
+                       style="top: 20px;">AN
             </md-button>
         </div>
     </div>

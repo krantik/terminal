@@ -89,8 +89,9 @@ app.controller('mainController', function ($scope, $mdToast, $mdDialog, terminal
     $scope.terminal.updateUI = function (value) {
         var tmpArray = new Uint8Array(value.buffer);
         for (var i = 0; i < tmpArray.length; i++) {
-            $scope.terminaldata = $scope.terminaldata + tmpArray[i].toString(16);
+            $scope.terminaldata = $scope.terminaldata +String.fromCharCode(tmpArray[i]);
         }
+
         $scope.$apply();
     };
 
@@ -113,6 +114,35 @@ app.controller('mainController', function ($scope, $mdToast, $mdDialog, terminal
         $scope.terminaldata = '';
     }
 
+    $scope.onAG = function () {
+
+        var bufView = new Uint8Array([65,71,13]);
+
+        $scope.terminal.writeData(bufView)
+            .then(function () {
+                $scope.terminaldata = $scope.terminaldata + ' <AG>';
+                $scope.$apply();
+            })
+            .catch(function (error) {
+                badToast('Unable to send data.');
+            });
+    }
+
+    $scope.onAN = function () {
+
+        var bufView = new Uint8Array([65,78,13]);
+
+        $scope.terminal.writeData(bufView)
+            .then(function () {
+                $scope.terminaldata = $scope.terminaldata + ' <AN>';
+                $scope.$apply();
+            })
+            .catch(function (error) {
+                badToast('Unable to send data.');
+            });
+    }
+
+
     $scope.onSend = function () {
         if ($scope.inputData === undefined) {
             badToast('Enter Command to Send');
@@ -133,7 +163,6 @@ app.controller('mainController', function ($scope, $mdToast, $mdDialog, terminal
         $scope.terminal.writeData(bufView)
             .then(function () {
                 $scope.terminaldata = $scope.terminaldata + ' <' + $scope.inputData + '>';
-                $scope.inputData = '';
                 $scope.$apply();
             })
             .catch(function (error) {
